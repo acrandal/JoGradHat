@@ -8,23 +8,7 @@
  #include <avr/power.h> // Required for 16 MHz Adafruit Trinket
 #endif
 
-// Which pin on the Arduino is connected to the NeoPixels?
-// On a Trinket or Gemma we suggest changing this to 1:
 #define LED_PIN    6
-
-/* This driver reads raw data from the BNO055
-
-   Connections
-   ===========
-   Connect SCL to analog 5
-   Connect SDA to analog 4
-   Connect VDD to 3.3V DC
-   Connect GROUND to common ground
-
-   History
-   =======
-   2015/MAR/03  - First release (KTOWN)
-*/
 
 /* Set the delay between fresh samples */
 #define BNO055_SAMPLERATE_DELAY_MS (100)
@@ -165,6 +149,8 @@ void loop(void)
   //Serial.print("\tcurrVelocity: " + String(currVelocity) + " m/s");
 
   float forceFriction = COFF_FRICTION * BALL_MASS * EARTH_G;
+  //float forceFriction = COFF_FRICTION * BALL_MASS * MARS_G;
+
   //Serial.print("\forceFric: " + String(forceFriction) + " N");
 
   float deltaVfriction = (deltaT * forceFriction) / BALL_MASS;
